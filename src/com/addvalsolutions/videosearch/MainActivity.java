@@ -19,7 +19,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore.Video;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -76,14 +75,14 @@ public class MainActivity extends Activity {
 					//Video chosen=(Video)arg0.getItemAtPosition(position);
 					//int i=Integer.parseInt(chosen.toString());
 					//lv.SelectedItems[i].SubItems[1].Text;
-					Map<String, String> map=(Map<String,String>)((ListView)lv).getItemAtPosition(position);
+					Map<String, String> map=(Map<String,String>)lv.getItemAtPosition(position);
 					String val=map.get("player");
-					/*Bundle b=new Bundle();
+					Bundle b=new Bundle();
 					b.putString("video", val);
 					Intent intent=new Intent(getApplicationContext(),SecondActivity.class);
 					intent.putExtras(b);
-					startActivity(intent);*/
-					startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(val)));
+					startActivity(intent);
+					//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(val)));
 				}
 			}); 
 	}

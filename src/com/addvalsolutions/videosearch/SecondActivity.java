@@ -28,9 +28,8 @@ public class SecondActivity extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		tv_watch=(TextView)findViewById(R.id.tv_watch);
-		tv_watch=(TextView)findViewById(R.id.tv_watch);
 		ytube=(Button)findViewById(R.id.play_video);
-		fb=(Button)findViewById(R.id.share_fb);
+		//fb=(Button)findViewById(R.id.share_fb);
 		Intent intent=getIntent();
 		Bundle b=intent.getExtras();
 		video=b.getString("video");
