@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Video Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="tv_hint">Enter content to search</string>
+    <string name="btn_search">Search</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="play_video">Play Video</string>
+    <string name="fb">Share On Facebook</string>
+    <string name="app_id">356636537773411</string>
+
+</resources>
