@@ -22,7 +22,7 @@
             android:value="@string/app_id" />
 
         <activity
-            android:name="com.addvalsolutions.youtubeapi.MainActivity"
+            android:name="com.addvalsolutions.videosearch.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,9 +32,9 @@
         </activity>
         <activity android:name="com.facebook.LoginActivity" />
         <activity
-            android:name="com.addvalsolutions.youtubeapi.SecondActivity"
+            android:name="com.addvalsolutions.videosearch.SecondActivity"
             android:label="@string/title_activity_second"
-            android:parentActivityName="com.addvalsolutions.youtubeapi.MainActivity" >
+            android:parentActivityName="com.addvalsolutions.videosearch.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="addvalsolutions.videosearch.MainActivity" />

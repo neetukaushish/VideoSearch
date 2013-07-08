@@ -10,17 +10,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 
-public class SecondActivity extends Activity {
+public class SecondActivity extends FragmentActivity {
 
 	Button ytube;
 	Button fb;
 	String video="";
 	TextView tv_watch,tv_share;
+	private MainFragment mainFragment;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,10 +31,11 @@ public class SecondActivity extends Activity {
 		setupActionBar();
 		tv_watch=(TextView)findViewById(R.id.tv_watch);
 		ytube=(Button)findViewById(R.id.play_video);
-		//fb=(Button)findViewById(R.id.share_fb);
+		fb=(Button)findViewById(R.id.share_fb);
 		Intent intent=getIntent();
 		Bundle b=intent.getExtras();
 		video=b.getString("video");
+		
 		
 		ytube.setOnClickListener(new OnClickListener() {
 			
@@ -40,6 +43,18 @@ public class SecondActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(video)));
+			}
+		});
+		fb.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				mainFragment=new MainFragment();
+				Bundle b=new Bundle();
+				b.putString("video", video);
+				mainFragment.setArguments(b);
+				getSupportFragmentManager().beginTransaction().add(android.R.id.content, mainFragment).commit();
 			}
 		});
 	}
