@@ -8,29 +8,23 @@ import java.util.Map;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.google.android.gms.internal.ed;
-
 import addvalsolutions.videosearch.R;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore.Video;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,7 +32,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends Activity {
 
@@ -53,6 +46,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		edit=(EditText)findViewById(R.id.edit_search);
 		btn=(Button)findViewById(R.id.btn_search);
+		lv=(ListView)findViewById(R.id.list);
 		btn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -73,24 +67,24 @@ public class MainActivity extends Activity {
 				new RequestTask().execute("https://gdata.youtube.com/feeds/api/videos?q="+input+"&alt=jsonc&v=2&key=AIzaSyBAhKQ4VY3PYYn1p4qjX0N7n7Cl3NPbzww");
 			}
 		});
-	/*	  lv.setOnItemClickListener(new OnItemClickListener() {
+		  lv.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override
 				public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
 					// TODO Auto-generated method stub
-					Video chosen=(Video)arg0.getItemAtPosition(position);
-					int i=Integer.parseInt(chosen.toString());
+					//Video chosen=(Video)arg0.getItemAtPosition(position);
+					//int i=Integer.parseInt(chosen.toString());
 					//lv.SelectedItems[i].SubItems[1].Text;
-					Map<String, String> map=(Map<String,String>)((ListView)lv).getItemAtPosition(position);
+					Map<String, String> map=(Map<String,String>)lv.getItemAtPosition(position);
 					String val=map.get("player");
 					Bundle b=new Bundle();
 					b.putString("video", val);
 					Intent intent=new Intent(getApplicationContext(),SecondActivity.class);
 					intent.putExtras(b);
 					startActivity(intent);
-					startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(val)));
+					//startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(val)));
 				}
-			}); */
+			}); 
 	}
 
 	private class RequestTask extends AsyncTask<String, String, String>{
@@ -100,7 +94,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub
 			HttpClient httpclient = new DefaultHttpClient();
             HttpResponse response;
-            JSONObject jsonObject;
+            //JSONObject jsonObject;
             String responseString = null;
 			try{
 				response = httpclient.execute(new HttpGet(uri[0]));
